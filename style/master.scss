@@ -19,11 +19,14 @@ body{
 }
 
 .title{
-    margin: 80px auto 80px auto;
+    margin: 0 auto 50px auto;
     text-align: center;
-    font-size: 1.55em;
-    letter-spacing: 5px;
+    font-size: 1em;
+    letter-spacing: 1px;
     word-spacing: 1em;
+    font-weight: 900;
+    background-color: rgba(81, 162, 209, .5);
+    padding: 1em;
 }
 
 .success{
@@ -44,10 +47,11 @@ body{
         align-items: center;
         justify-content: center;
         gap: 2em;     
+        flex-flow: row;
         span{
-            font-size: 1em;
+            font-size: .9em;
             font-weight: 500;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             display: inline-block;
         }
         .watermark {
@@ -81,7 +85,6 @@ body{
     }
     .wrapper-form{
         position: relative;
-        background-color: #000;
         height: 300px;
         width: 400px;
         display: flex;
@@ -101,6 +104,7 @@ body{
 
 .combine-btn{
     text-align: center;
+    margin-bottom: 30px;
     button{
         margin-top: 50px;
         padding: 1em 3em;
@@ -116,5 +120,13 @@ button{
     &:hover{
         transition-duration: 150ms;
         background-color: rgba(81, 162, 209, .8);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container{
+        .row{
+            flex-flow: wrap;
+        }       
     }
 }

@@ -20,7 +20,7 @@
                         $fileNameNew = uniqid('', true).".".$fileActualExt = strtolower(end($fileExt));;
                         $fileDestination = "watermark/$fileNameNew";
                         move_uploaded_file($fileTmpName, $fileDestination);
-                        header("Location: index.php?watermarkSuccess");
+                        header("Location: index.php");
                     } else { echo "This file is too big"; }
                 } else{ echo 'Error uploading file'; }
             }   else { echo 'This type of files are not allowed'; }
@@ -52,7 +52,7 @@
                             $fileNameNew = uniqid('', true).".".$fileActualExt = strtolower(end($fileExt));;
                             $fileDestination = "uploads/$fileNameNew";
                             move_uploaded_file($fileTmpName, $fileDestination);
-                            header("Location: index.php?success=$count");
+                            header("Location: index.php");
                         } else { echo "This file is too big"; }
                     } else{ echo 'Error uploading file'; }
                 }   else { echo 'This type of files are not allowed'; }

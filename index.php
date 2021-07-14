@@ -1,4 +1,23 @@
+<?php 
+    // READ FILES IN `UPLOADS`
+    $upload_dir = './uploads';
+    $uploaded_images = null;
+    foreach (scandir($upload_dir) as $file) {
+        if ($file !== '.' && $file !== '..') {
+            $uploaded_images += 1;
+        }
+    }
 
+    // READ FILE IN WATERMARK DIRECTORY
+    $watermark_dir = './watermark';
+    $uploaded_watermark = null;
+    foreach (scandir($watermark_dir) as $file) {
+        if ($file !== '.' && $file !== '..') {
+            $uploaded_watermark = 1;
+        }
+    }
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,15 +35,13 @@
 
     <?php 
 
-    if(isset($_GET['combinedSuccessfully'])){
-        echo '<div class="success">
-        <p>Combined successfully.</p>
-    </div> ';
-    }
+        if(isset($_GET['combinedSuccessfully'])){
+            echo '<div class="success">
+                <p>Combined successfully.</p>
+            </div> ';
+        }
     
     ?>
-
-    <!-- -->
 
     <div class="container">
         <div class="row">
@@ -34,7 +51,11 @@
                     <form class="wrapper-form" action="upload.php" method="POST" enctype="multipart/form-data">
                         <label for="watermark-input">
                             <?php 
-                                if (isset($_GET['watermarkSuccess'])){ echo "Watermark/logo selected";} else { echo "Select watermark/logo";}
+                                if(!is_null($uploaded_watermark)){
+                                    echo "Watermark/logo selected";
+                                } else {
+                                    echo "Select watermark/logo";
+                                }
                             ?>       
                         </label>
                         <input type="file" name="watermark" multiple id="watermark-input"/>
@@ -48,9 +69,11 @@
                     <form class="wrapper-form" action="upload.php" method="POST" enctype="multipart/form-data">
                         <label for="background-input">
                             <?php 
-                                if(isset($_GET['success'])){
-                                    echo "Images uploaded: ".$_GET['success'];
-                                } else { echo "Select images"; }
+                                 if(!is_null($uploaded_images)){
+                                    echo "Images uploaded: $uploaded_images";
+                                } else {
+                                    echo "Select images";
+                                }
                             ?>
                         </label>
                         <input type="file" name="file[]" multiple id="background-input"/>

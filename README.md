@@ -1,3 +1,5 @@
 # image-combiner
 
-Add watermark/logo on images
+<img src="favicon.png" width=150 height=150> IMAGE-COMBINER
+
+Add watermark/logo to images

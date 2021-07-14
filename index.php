@@ -25,8 +25,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="favicon.png"/>
     <link rel="stylesheet" href="./style/master.css">
-    <title>IMAGE COMBINER</title>
+    <title>IMAGE COMBINER - Add watermark/logo to images</title>
 </head>
 <body>
     
@@ -49,7 +50,7 @@
                 <div class="wrapper">
                     <span>WATERMARK</span>
                     <form class="wrapper-form" action="upload.php" method="POST" enctype="multipart/form-data">
-                        <label for="watermark-input">
+                        <!-- <label for="watermark-input">
                             <?php 
                                 if(!is_null($uploaded_watermark)){
                                     echo "Watermark/logo selected";
@@ -57,7 +58,10 @@
                                     echo "Select watermark/logo";
                                 }
                             ?>       
-                        </label>
+                        </label> -->
+
+                                <!-- making previews -->
+
                         <input type="file" name="watermark" multiple id="watermark-input"/>
                         <button type="submit" name="submitWatermark">UPLOAD</button>
                     </form>

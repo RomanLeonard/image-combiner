@@ -48,7 +48,6 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 2em;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-flow: row;
@@ -59,6 +58,7 @@ body {
   font-size: .9em;
   font-weight: 500;
   margin-bottom: 5px;
+  margin-left: 20px;
   display: inline-block;
 }
 
@@ -70,6 +70,10 @@ body {
   color: #4B7F52;
 }
 
+.container .row .watermark .wrapper-form label:hover {
+  color: rgba(75, 127, 82, 0.5);
+}
+
 .container .row .background-images .wrapper-form {
   background-color: rgba(232, 150, 150, 0.5);
 }
@@ -78,21 +82,27 @@ body {
   color: rgba(139, 80, 80, 0.9);
 }
 
+.container .row .background-images .wrapper-form label:hover {
+  color: rgba(139, 80, 80, 0.5);
+}
+
 .wrapper {
   padding: 1em;
+  width: 100%;
 }
 
 .wrapper label {
   padding: 1em 3em;
   display: inline-block;
   cursor: pointer;
-  font-size: .95em;
+  font-size: .9em;
 }
 
 .wrapper .wrapper-form {
   position: relative;
-  height: 300px;
-  width: 400px;
+  height: 50vh;
+  width: 40vw;
+  margin: 0 20px 0 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,6 +153,9 @@ button:hover {
   .container .row {
     -ms-flex-flow: wrap;
         flex-flow: wrap;
+  }
+  .container .row .wrapper-form {
+    width: 80vw;
   }
 }
 /*# sourceMappingURL=master.css.map */

@@ -46,12 +46,12 @@ body{
         width: 100%;
         align-items: center;
         justify-content: center;
-        gap: 2em;     
         flex-flow: row;
         span{
             font-size: .9em;
             font-weight: 500;
             margin-bottom: 5px;
+            margin-left: 20px;
             display: inline-block;
         }
         .watermark {
@@ -59,6 +59,9 @@ body{
                 background-color: rgba(125, 209, 129, .5);
                 label{
                     color: #4B7F52;
+                    &:hover{
+                        color: rgba(75, 127, 82, .5);
+                    }
                 }
             }
         }
@@ -67,6 +70,9 @@ body{
                 background-color: rgba(232, 150, 150, .5);
                 label{
                     color: rgba(139, 80, 80, 0.9);
+                    &:hover{
+                        color: rgba(139, 80, 80, 0.5);
+                    }
                 }
             }
         }    
@@ -77,16 +83,18 @@ body{
 
 .wrapper{
     padding: 1em;
+    width: 100%;
     label{
         padding: 1em 3em;
         display: inline-block;
         cursor: pointer;
-        font-size: .95em;
+        font-size: .9em;
     }
     .wrapper-form{
         position: relative;
-        height: 300px;
-        width: 400px;
+        height: 50vh;
+        width: 40vw;
+        margin: 0 20px 0 20px ;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -127,6 +135,10 @@ button{
     .container{
         .row{
             flex-flow: wrap;
+
+            .wrapper-form{
+                width: 80vw;
+            }
         }       
     }
 }

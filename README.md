@@ -1,6 +1,6 @@
 # image-combiner
 
-<div style="display: flex; gap: 1em; align-items: center">
+<div style="display: flex; gap: 1em; align-items: center; flex-flow: row">
 <img src="favicon.png" width=150 height=150> 
 <h1 style="font-weight: 900; text-decoration: none">IMAGE-COMBINER</h1>
 </div>

@@ -1,0 +1,134 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.title {
+  margin: 80px auto 80px auto;
+  text-align: center;
+  font-size: 1.55em;
+  letter-spacing: 5px;
+  word-spacing: 1em;
+}
+
+.success {
+  background-color: rgba(125, 209, 129, 0.5);
+  padding: 1em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: #4B7F52;
+}
+
+.container {
+  margin-top: 50px;
+}
+
+.container .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+}
+
+.container .row span {
+  font-size: 1em;
+  font-weight: 500;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.container .row .watermark .wrapper-form {
+  background-color: rgba(125, 209, 129, 0.5);
+}
+
+.container .row .watermark .wrapper-form label {
+  color: #4B7F52;
+}
+
+.container .row .background-images .wrapper-form {
+  background-color: rgba(232, 150, 150, 0.5);
+}
+
+.container .row .background-images .wrapper-form label {
+  color: rgba(139, 80, 80, 0.9);
+}
+
+.wrapper {
+  padding: 1em;
+}
+
+.wrapper label {
+  padding: 1em 3em;
+  display: inline-block;
+  cursor: pointer;
+  font-size: .95em;
+}
+
+.wrapper .wrapper-form {
+  position: relative;
+  background-color: #000;
+  height: 300px;
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.wrapper .wrapper-form input {
+  display: none;
+}
+
+.wrapper .wrapper-form button {
+  position: absolute;
+  bottom: 1.5em;
+  padding: 1.2em 3em;
+  font-size: .75em;
+}
+
+.combine-btn {
+  text-align: center;
+}
+
+.combine-btn button {
+  margin-top: 50px;
+  padding: 1em 3em;
+}
+
+button {
+  cursor: pointer;
+  display: inline-block;
+  border: none;
+  background-color: rgba(81, 162, 209, 0.5);
+  font-size: .9em;
+}
+
+button:hover {
+  -webkit-transition-duration: 150ms;
+          transition-duration: 150ms;
+  background-color: rgba(81, 162, 209, 0.8);
+}
+/*# sourceMappingURL=master.css.map */

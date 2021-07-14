@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+$thin: 100;
+$regular: 300;
+$medium: 400;
+$bold: 500;
+$black: 700;
+
+body{
+    width: 100%;
+    height: 100%;
+    font-family: 'Roboto';
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    margin: 80px auto 80px auto;
+    text-align: center;
+    font-size: 1.55em;
+    letter-spacing: 5px;
+    word-spacing: 1em;
+}
+
+.success{
+    background-color: rgba(125, 209, 129, .5);
+    padding: 1em;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: #4B7F52;
+}
+
+.container{
+    margin-top: 50px;
+    .row{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        gap: 2em;     
+        span{
+            font-size: 1em;
+            font-weight: 500;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .watermark {
+            .wrapper-form{
+                background-color: rgba(125, 209, 129, .5);
+                label{
+                    color: #4B7F52;
+                }
+            }
+        }
+        .background-images{
+            .wrapper-form{
+                background-color: rgba(232, 150, 150, .5);
+                label{
+                    color: rgba(139, 80, 80, 0.9);
+                }
+            }
+        }    
+    }
+}
+
+
+
+.wrapper{
+    padding: 1em;
+    label{
+        padding: 1em 3em;
+        display: inline-block;
+        cursor: pointer;
+        font-size: .95em;
+    }
+    .wrapper-form{
+        position: relative;
+        background-color: #000;
+        height: 300px;
+        width: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        input{
+            display: none;
+        }
+        button{
+            position: absolute;
+            bottom: 1.5em;
+            padding: 1.2em 3em;
+            font-size: .75em;
+        }
+    }
+}
+
+.combine-btn{
+    text-align: center;
+    button{
+        margin-top: 50px;
+        padding: 1em 3em;
+    }
+}
+
+button{
+    cursor: pointer;
+    display: inline-block;
+    border: none;
+    background-color: rgba(81, 162, 209, .5);
+    font-size: .9em;
+    &:hover{
+        transition-duration: 150ms;
+        background-color: rgba(81, 162, 209, .8);
+    }
+}

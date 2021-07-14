@@ -5,9 +5,9 @@
 <br>
 <p style="padding: 1em">
     Insert watermark/logo to images. <br>
-    This is a free open soure project.
+    This is a free open source project.
     <br><br>
-    You can select your logo/watermark and merge it with images. I was working as a real estate agent and needed an app to do exactly this but all I can find was only trial apps, so why not to develop my own.
+    You can select your logo/watermark and merge it with images. I was working as a real estate agent and needed an app to do exactly this but all I can find was trial apps, so why not to develop my own.
 
     Feel free to use it, upgrade it.
 

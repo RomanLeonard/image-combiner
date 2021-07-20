@@ -87,12 +87,15 @@
 
             $heightZero = -1;
             $watermarkResized = imagescale($watermarkToBeInserted, $halfWidth, $heightZero);
+
+            $watermarkBg = imagecreatetruecolor($halfWidth, $halfHeight);
+            imagealphablending($watermarkResized, true);
+
             imagepng($watermarkResized, './watermark/watermark-resized.png');
             $watermark_new_size = getimagesize('./watermark/watermark-resized.png');
             $watermark_width = $watermark_new_size[0];
             $watermark_height = $watermark_new_size[1];
 
-            
             
             // dimensions of the final image 
             $final_img = imagecreatetruecolor($bgWidth, $bgHeight);

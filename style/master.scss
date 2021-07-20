@@ -98,6 +98,18 @@ body{
         display: flex;
         align-items: center;
         justify-content: center;
+        .images-preview{
+            width: 100%;
+            
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            position: relative;
+            gap: .4em;
+            .preview{
+                width: 100%;
+            }
+        }
+
         input{
             display: none;
         }

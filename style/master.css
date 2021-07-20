@@ -114,6 +114,20 @@ body {
           justify-content: center;
 }
 
+.wrapper .wrapper-form .images-preview {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+  position: relative;
+  gap: .4em;
+}
+
+.wrapper .wrapper-form .images-preview .preview {
+  width: 100%;
+}
+
 .wrapper .wrapper-form input {
   display: none;
 }

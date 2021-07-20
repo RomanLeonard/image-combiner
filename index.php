@@ -2,20 +2,28 @@
     // READ FILES IN `UPLOADS`
     $upload_dir = './uploads';
     $uploaded_images = null;
+    $image_name = [];
     foreach (scandir($upload_dir) as $file) {
         if ($file !== '.' && $file !== '..') {
             $uploaded_images += 1;
+            $image_name[] = './uploads/'.$file;
         }
     }
 
     // READ FILE IN WATERMARK DIRECTORY
     $watermark_dir = './watermark';
+    $current_watermark = '';
     $uploaded_watermark = null;
     foreach (scandir($watermark_dir) as $file) {
         if ($file !== '.' && $file !== '..') {
-            $uploaded_watermark = 1;
+            $uploaded_watermark += 1;
+            if ($uploaded_watermark === 1){
+            $current_watermark = './watermark/'.$file;
+            } else {}
         }
     }
+
+
 
 ?>
 
@@ -50,19 +58,18 @@
                 <div class="wrapper">
                     <span>WATERMARK</span>
                     <form class="wrapper-form" action="upload.php" method="POST" enctype="multipart/form-data">
-                        <!-- <label for="watermark-input">
+                        <label for="watermark-input">
+                            
                             <?php 
                                 if(!is_null($uploaded_watermark)){
-                                    echo "Watermark/logo selected";
+                                    echo "<img id='watermark-preview' src='$current_watermark' />";
                                 } else {
                                     echo "Select watermark/logo";
                                 }
                             ?>       
-                        </label> -->
 
-                                <!-- making previews -->
-
-                        <input type="file" name="watermark" multiple id="watermark-input"/>
+                        </label>
+                        <input type="file" name="watermark" multiple id="watermark-input" onchange="readURL(this);"/>
                         <button type="submit" name="submitWatermark">UPLOAD</button>
                     </form>
                 </div>
@@ -74,7 +81,11 @@
                         <label for="background-input">
                             <?php 
                                  if(!is_null($uploaded_images)){
-                                    echo "Images uploaded: $uploaded_images";
+                                    echo "<div class='images-preview'>";
+                                        for($i=0;$i<$uploaded_images;$i++){
+                                            echo "<img class='preview' src='$image_name[$i]'>";
+                                        }
+                                    echo "</div>";
                                 } else {
                                     echo "Select images";
                                 }
@@ -94,33 +105,28 @@
         </form>
     </div>
 
-    
+    <div class="info">
+        <div class="card">
+            <div class="card-content">
+                <p>This is an open source application that you can clone from <a href="" target="_blank" rel="noopener noreferrer"></a> GitHub</p>
+                <p>Developed by Leonard Roman</p>
+            </div>
+        </div>
+    </div>
 
+    <script type="text/javascript">
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
 
+                reader.onload = function (e) {
+                    $('#watermark-preview').attr('src', e.target.result);
+                }
 
-    <!-- WATERMARK UPLOAD
-    <h1>WATERMARK</h1>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <label for="watermark">Browse file...</label>
-        <input type="file" name="watermark" multiple id="watermark"/>
-        <button type="submit" name="submitWatermark">UPLOAD</button>
-    </form> -->
-    <!-- BACKGROUND UPLOAD
-    <h1>BACKGROUND</h1>
-    <form action="upload.php" method="POST" enctype="multipart/form-data">
-        <input type="file" name="file[]" multiple/>
-        <button type="submit" name="submitBg">UPLOAD</button>
-    </form> -->
-
-
-    
-
-
-
-
-
-
-
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 
 </body>
 </html>

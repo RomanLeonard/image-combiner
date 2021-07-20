@@ -23,14 +23,23 @@ body {
   padding: 1em;
 }
 
-.success {
-  background-color: rgba(125, 209, 129, 0.5);
+.info-card {
   padding: 1em;
   width: 80%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
   color: #4B7F52;
+}
+
+.info-card.success {
+  background-color: rgba(125, 209, 129, 0.5);
+  color: #4B7F52;
+}
+
+.info-card.delete {
+  background-color: rgba(214, 65, 65, 0.336);
+  color: rgba(102, 43, 43, 0.9);
 }
 
 .container {
@@ -64,6 +73,11 @@ body {
 
 .container .row .watermark .wrapper-form {
   background-color: rgba(125, 209, 129, 0.5);
+  text-align: center;
+}
+
+.container .row .watermark .wrapper-form .watermark-preview {
+  width: 50%;
 }
 
 .container .row .watermark .wrapper-form label {
@@ -147,6 +161,66 @@ body {
 .combine-btn button {
   margin-top: 50px;
   padding: 1em 3em;
+}
+
+.download {
+  background-color: rgba(81, 162, 209, 0.3);
+  width: 90%;
+  margin: 30px auto 0 auto;
+  position: relative;
+  padding: 1em;
+}
+
+.download .wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.download .wrapper .download-btn {
+  padding: .5em;
+  color: rgba(139, 80, 80, 0.9);
+  text-decoration: none;
+}
+
+.download .wrapper .download-btn:hover {
+  font-weight: 800;
+}
+
+.info {
+  margin: 100px auto 0 auto;
+  width: 100%;
+  background-color: rgba(125, 209, 129, 0.15);
+  padding: 7em 4em;
+}
+
+.info p {
+  color: #244729;
+}
+
+.info p:first-child {
+  margin-bottom: 15px;
+}
+
+.delete-section {
+  width: 90%;
+  background-color: rgba(139, 80, 80, 0.1);
+  margin: 50px auto 0 auto;
+  padding: 1em;
+}
+
+.delete-section form {
+  margin-top: 20px;
+}
+
+.delete-section form button {
+  background-color: rgba(240, 54, 54, 0.5);
+  padding: .5em 1em;
+  margin: 5px;
 }
 
 button {

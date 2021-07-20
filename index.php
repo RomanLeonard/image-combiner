@@ -1,4 +1,5 @@
 <?php 
+
     // READ FILES IN `UPLOADS`
     $upload_dir = './uploads';
     $uploaded_images = null;
@@ -23,6 +24,14 @@
         }
     }
 
+    // READ FILE IN combined DIRECTORY
+    $combined_dir = './combined';
+    $combined_index = 0;
+    foreach (scandir($combined_dir) as $file) {
+        if ($file !== '.' && $file !== '..') {
+            $combined_index++;
+        }
+    }
 
 
 ?>
@@ -45,11 +54,31 @@
     <?php 
 
         if(isset($_GET['combinedSuccessfully'])){
-            echo '<div class="success">
+            echo '<div class="info-card success">
                 <p>Combined successfully.</p>
             </div> ';
         }
-    
+
+        if(isset($_GET['deleted'])){
+            switch($_GET['deleted']){
+                case 'combined':
+                    echo "<div class='info-card delete'>
+                        <p>Combined items deleted successfully.</p>
+                    </div> ";
+                    break;
+                case 'uploads':
+                    echo '<div class="info-card delete">
+                        <p>Uploaded items deleted successfully.</p>
+                    </div> ';
+                    break;
+                case 'watermark':
+                    echo '<div class="info-card delete">
+                        <p>Watermark/logo deleted successfully.</p>
+                    </div> ';
+                    break;
+            }
+        }
+
     ?>
 
     <div class="container">
@@ -62,7 +91,7 @@
                             
                             <?php 
                                 if(!is_null($uploaded_watermark)){
-                                    echo "<img id='watermark-preview' src='$current_watermark' />";
+                                    echo "<img id='watermark-preview' src='$current_watermark' class='watermark-preview'/>";
                                 } else {
                                     echo "Select watermark/logo";
                                 }
@@ -104,6 +133,42 @@
             <button type="submit" name="combineBtn">COMBINE</button>
         </form>
     </div>
+
+    <!-- download button -->
+    <?php
+
+    if($combined_index >= 1 || $uploaded_images >= 1 || $uploaded_watermark >= 1){
+        if ($combined_index >=1 && $handle = opendir('combined/')) {
+            echo "<div class='download'><span>DOWNLOAD</span><div class='wrapper'>";
+            while (false !== ($entry = readdir($handle))) {
+                if ($entry != "." && $entry != "..") {
+                    $combined_index++;
+                    echo "<a class='download-btn' href='download.php?file=".$entry."'>".$entry."</a>";
+                }
+            }
+            closedir($handle);
+            echo "</div></div>";
+        }
+
+
+        echo "<div class='delete-section'>
+            <span>DELETE</span>
+            <form action='delete.php' method='POST'>";
+
+            
+            if($combined_index >= 1) echo "<button type='submit' name='combined'>COMBINED FILES</button>";
+            if($uploaded_images >= 1) echo "<button type='submit' name='uploads'>UPLOADED IMAGES</button>";
+            if($uploaded_watermark >= 1) echo "<button type='submit' name='watermark'>UPLOADED WATERMARK/LOGO</button>";
+            if($combined_index >= 1 && $uploaded_images >= 1 && $uploaded_watermark >= 1) echo "<button type='submit' name='all'>ALL</button>";
+            
+
+        echo "</form></div>";
+    }
+
+    ?>
+
+    
+
 
     <div class="info">
         <div class="card">

@@ -223,6 +223,10 @@ body {
   margin: 5px;
 }
 
+.delete-section form button:hover {
+  background-color: rgba(151, 29, 29, 0.5);
+}
+
 button {
   cursor: pointer;
   display: inline-block;
@@ -235,6 +239,10 @@ button:hover {
   -webkit-transition-duration: 150ms;
           transition-duration: 150ms;
   background-color: rgba(81, 162, 209, 0.8);
+}
+
+.hide {
+  display: none !important;
 }
 
 @media screen and (max-width: 768px) {

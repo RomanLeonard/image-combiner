@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-$thin: 100;
-$regular: 300;
-$medium: 400;
-$bold: 500;
-$black: 700;
-
 body{
     width: 100%;
     height: 100%;
@@ -168,22 +162,6 @@ body{
     }
 }
 
-.info{
-    margin: 100px auto 0 auto;
-    width: 100%;
-    background-color: rgba(125, 209, 129, .15);
-    padding: 7em 4em;
-
-    p{
-        color:rgb(36, 71, 41);
-        &:first-child{
-            margin-bottom: 15px;
-        }
-    }
-
-
-}
-
 .delete-section{
     width: 90%;
     background-color: rgba(139, 80, 80, 0.1);
@@ -195,6 +173,10 @@ body{
             background-color:rgba(240, 54, 54, 0.5);
             padding: .5em 1em;
             margin: 5px;
+
+            &:hover{
+                background-color:rgba(151, 29, 29, 0.5);
+            }
         }
     }
 }
@@ -210,6 +192,10 @@ button{
         transition-duration: 150ms;
         background-color: rgba(81, 162, 209, .8);
     }
+}
+
+.hide{
+    display: none !important;
 }
 
 @media screen and (max-width: 768px) {

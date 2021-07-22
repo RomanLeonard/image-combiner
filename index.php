@@ -76,6 +76,11 @@
                         <p>Watermark/logo deleted successfully.</p>
                     </div> ';
                     break;
+                case 'all':
+                    echo '<div class="info-card delete">
+                        <p>All images deleted successfully.</p>
+                    </div> ';
+                    break;
             }
         }
 
@@ -170,28 +175,12 @@
     
 
 
-    <div class="info">
-        <div class="card">
-            <div class="card-content">
-                <p>This is an open source application that you can clone from <a href="" target="_blank" rel="noopener noreferrer"></a> GitHub</p>
-                <p>Developed by Leonard Roman</p>
-            </div>
+    <div class="info-card">
+        <div class="card-content">
+            <p>This is an open source application that you can clone from <a href="https://github.com/RomanLeonard/image-combiner" target="_blank" >GitHub</a></p>
+            <p>Developed by Leonard Roman</p>
         </div>
     </div>
-
-    <script type="text/javascript">
-        function readURL(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $('#watermark-preview').attr('src', e.target.result);
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
 
 </body>
 </html>

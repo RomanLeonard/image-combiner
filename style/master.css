@@ -23,6 +23,23 @@ body {
   padding: 1em;
 }
 
+.error {
+  height: 500px;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  background-color: rgba(255, 0, 0, 0.05);
+}
+
 .info-card {
   padding: 1em;
   width: 80%;
@@ -40,6 +57,10 @@ body {
 .info-card.delete {
   background-color: rgba(214, 65, 65, 0.336);
   color: rgba(102, 43, 43, 0.9);
+}
+
+.info-card .card-content {
+  margin-top: 20px;
 }
 
 .container {
@@ -189,21 +210,6 @@ body {
 
 .download .wrapper .download-btn:hover {
   font-weight: 800;
-}
-
-.info {
-  margin: 100px auto 0 auto;
-  width: 100%;
-  background-color: rgba(125, 209, 129, 0.15);
-  padding: 7em 4em;
-}
-
-.info p {
-  color: #244729;
-}
-
-.info p:first-child {
-  margin-bottom: 15px;
 }
 
 .delete-section {

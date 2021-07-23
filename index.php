@@ -1,6 +1,6 @@
 <?php 
 
-    // READ FILES IN `UPLOADS`
+    // READ FILES IN upload DIRECTORY
     $upload_dir = './uploads';
     $uploaded_images = null;
     $image_name = [];
@@ -8,10 +8,11 @@
         if ($file !== '.' && $file !== '..') {
             $uploaded_images += 1;
             $image_name[] = './uploads/'.$file;
-        }
-    }
+        } 
+    } 
 
-    // READ FILE IN WATERMARK DIRECTORY
+
+    // READ FILE IN watermark DIRECTORY
     $watermark_dir = './watermark';
     $current_watermark = '';
     $uploaded_watermark = null;
@@ -20,8 +21,8 @@
             $uploaded_watermark += 1;
             if ($uploaded_watermark === 1){
             $current_watermark = './watermark/'.$file;
-            } else {}
-        }
+            } 
+        } 
     }
 
     // READ FILE IN combined DIRECTORY
@@ -30,61 +31,48 @@
     foreach (scandir($combined_dir) as $file) {
         if ($file !== '.' && $file !== '..') {
             $combined_index++;
+        } 
+    }
+
+    include 'header.php';
+?>
+
+    <h1 class="title">IMAGE COMBINER</h1>
+
+<?php 
+
+    if(isset($_GET['combinedSuccessfully'])){
+        echo '<div class="info-card success">
+            <p>Combined successfully.</p>
+        </div> ';
+    } 
+
+    if(isset($_GET['deleted'])){
+        switch($_GET['deleted']){
+            case 'combined':
+                echo "<div class='info-card delete'>
+                    <p>Combined items deleted successfully.</p>
+                </div> ";
+                break;
+            case 'uploads':
+                echo '<div class="info-card delete">
+                    <p>Uploaded items deleted successfully.</p>
+                </div> ';
+                break;
+            case 'watermark':
+                echo '<div class="info-card delete">
+                    <p>Watermark/logo deleted successfully.</p>
+                </div> ';
+                break;
+            case 'all':
+                echo '<div class="info-card delete">
+                    <p>All images deleted successfully.</p>
+                </div> ';
+                break;
         }
     }
 
-
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="./assets/favicon.png"/>
-    <link rel="stylesheet" href="./style/master.css">
-    <title>IMAGE COMBINER - Add watermark/logo to images</title>
-</head>
-<body>
-    
-    
-    <h1 class="title">IMAGE COMBINER</h1>
-
-    <?php 
-
-        if(isset($_GET['combinedSuccessfully'])){
-            echo '<div class="info-card success">
-                <p>Combined successfully.</p>
-            </div> ';
-        }
-
-        if(isset($_GET['deleted'])){
-            switch($_GET['deleted']){
-                case 'combined':
-                    echo "<div class='info-card delete'>
-                        <p>Combined items deleted successfully.</p>
-                    </div> ";
-                    break;
-                case 'uploads':
-                    echo '<div class="info-card delete">
-                        <p>Uploaded items deleted successfully.</p>
-                    </div> ';
-                    break;
-                case 'watermark':
-                    echo '<div class="info-card delete">
-                        <p>Watermark/logo deleted successfully.</p>
-                    </div> ';
-                    break;
-                case 'all':
-                    echo '<div class="info-card delete">
-                        <p>All images deleted successfully.</p>
-                    </div> ';
-                    break;
-            }
-        }
-
-    ?>
 
     <div class="container">
         <div class="row">
@@ -98,7 +86,7 @@
                                 if(!is_null($uploaded_watermark)){
                                     echo "<img id='watermark-preview' src='$current_watermark' class='watermark-preview'/>";
                                 } else {
-                                    echo "Select watermark/logo";
+                                    echo "Select watermark/logo (only PNG)";
                                 }
                             ?>       
 
@@ -121,7 +109,7 @@
                                         }
                                     echo "</div>";
                                 } else {
-                                    echo "Select images";
+                                    echo "Select images (only PNG, JPG or JPEG)";
                                 }
                             ?>
                         </label>
@@ -139,8 +127,8 @@
         </form>
     </div>
 
-    <!-- download button -->
-    <?php
+<!-- download button -->
+<?php
 
     if($combined_index >= 1 || $uploaded_images >= 1 || $uploaded_watermark >= 1){
         if ($combined_index >=1 && $handle = opendir('combined/')) {
@@ -159,28 +147,14 @@
         echo "<div class='delete-section'>
             <span>DELETE</span>
             <form action='delete.php' method='POST'>";
-
             
             if($combined_index >= 1) echo "<button type='submit' name='combined'>COMBINED FILES</button>";
             if($uploaded_images >= 1) echo "<button type='submit' name='uploads'>UPLOADED IMAGES</button>";
             if($uploaded_watermark >= 1) echo "<button type='submit' name='watermark'>UPLOADED WATERMARK/LOGO</button>";
             if($combined_index >= 1 && $uploaded_images >= 1 && $uploaded_watermark >= 1) echo "<button type='submit' name='all'>ALL</button>";
             
-
         echo "</form></div>";
     }
 
-    ?>
-
-    
-
-
-    <div class="info-card">
-        <div class="card-content">
-            <p>This is an open source application that you can clone from <a href="https://github.com/RomanLeonard/image-combiner" target="_blank" >GitHub</a></p>
-            <p>Developed by Leonard Roman</p>
-        </div>
-    </div>
-
-</body>
-</html>
+    include 'footer.php';
+?>

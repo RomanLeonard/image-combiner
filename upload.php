@@ -12,7 +12,7 @@
             $fileExt = explode('.', $fileName);
             $fileActualExt = strtolower(end($fileExt));
 
-            $allowed = array('jpg', 'jpeg', 'png');
+            $allowed = array('png');
 
             if(in_array($fileActualExt, $allowed)){
                 if($fileError === 0){
@@ -21,9 +21,9 @@
                         $fileDestination = "watermark/$fileNameNew";
                         move_uploaded_file($fileTmpName, $fileDestination);
                         header("Location: index.php");
-                    } else { echo "This file is too big"; }
-                } else{ echo 'Error uploading file'; }
-            }   else { echo 'This type of files are not allowed'; }
+                    } else { header("Location: error.php?error=size"); }
+                } else { header("Location: error.php?error=upload-corrupted"); }
+            } else { header("Location: error.php?error=upload-type"); }
         }
     }
 
@@ -53,9 +53,9 @@
                             $fileDestination = "uploads/$fileNameNew";
                             move_uploaded_file($fileTmpName, $fileDestination);
                             header("Location: index.php");
-                        } else { echo "This file is too big"; }
-                    } else{ echo 'Error uploading file'; }
-                }   else { echo 'This type of files are not allowed'; }
+                        } else { header("Location: error.php?error=size"); }
+                    } else { header("Location: error.php?error=upload-corrupted"); }
+                } else { header("Location: error.php?error=upload-type"); }
 
             }
         }

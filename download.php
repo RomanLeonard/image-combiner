@@ -4,7 +4,8 @@
     $file = 'combined/'.$file;
 
     if(!file_exists($file)){
-        die('file not found');
+        header("Location: error.php?error=file-not-found");
+        die();
     } else {
         header("Cache-Control: public");
         header("Content-Description: File Transfer");

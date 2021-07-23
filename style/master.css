@@ -41,6 +41,7 @@ body {
 }
 
 .info-card {
+  position: relative;
   padding: 1em;
   width: 80%;
   margin-left: auto;
@@ -61,6 +62,20 @@ body {
 
 .info-card .card-content {
   margin-top: 20px;
+}
+
+.info-card span {
+  cursor: pointer;
+  top: 0;
+  position: absolute;
+  right: 30px;
+  font-size: 1em;
+  color: rgba(102, 43, 43, 0.9);
+  padding: 1em;
+}
+
+.info-card span:hover {
+  color: rgba(102, 43, 43, 0.5);
 }
 
 .container {
@@ -127,10 +142,20 @@ body {
 }
 
 .wrapper label {
-  padding: 1em 3em;
   display: inline-block;
   cursor: pointer;
   font-size: .9em;
+  height: 100%;
+}
+
+.wrapper label span {
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 .wrapper .wrapper-form {
@@ -147,6 +172,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow-y: scroll;
 }
 
 .wrapper .wrapper-form .images-preview {
@@ -248,7 +274,7 @@ button:hover {
 }
 
 .hide {
-  display: none !important;
+  display: none;
 }
 
 @media screen and (max-width: 768px) {

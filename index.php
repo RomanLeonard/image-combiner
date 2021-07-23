@@ -54,7 +54,7 @@
 
     if(isset($_GET['combinedSuccessfully'])){
         echo '<div class="info-card success">
-            <p>Combined successfully.</p>
+            <p>Combined successfully. <span id="close-card"><b>x</b></span></p>
         </div> ';
     } 
 
@@ -62,22 +62,22 @@
         switch($_GET['deleted']){
             case 'combined':
                 echo "<div class='info-card delete'>
-                    <p>Combined items deleted successfully.</p>
+                    <p>Combined items deleted successfully. <span id='close-card'><b>x</b></span></p>
                 </div> ";
                 break;
             case 'uploads':
                 echo '<div class="info-card delete">
-                    <p>Uploaded items deleted successfully.</p>
+                    <p>Uploaded items deleted successfully. <span id="close-card"><b>x</b></span></p>
                 </div> ';
                 break;
             case 'watermark':
                 echo '<div class="info-card delete">
-                    <p>Watermark/logo deleted successfully.</p>
+                    <p>Watermark/logo deleted successfully. <span id="close-card"><b>x</b></span></p>
                 </div> ';
                 break;
             case 'all':
                 echo '<div class="info-card delete">
-                    <p>All images deleted successfully.</p>
+                    <p>All images deleted successfully. <span id="close-card"><b>x</b></span></p>
                 </div> ';
                 break;
         }
@@ -97,7 +97,7 @@
                                 if(!is_null($uploaded_watermark)){
                                     echo "<img id='watermark-preview' src='$current_watermark' class='watermark-preview'/>";
                                 } else {
-                                    echo "Select watermark/logo (only PNG)";
+                                    echo "<span>Select watermark/logo (only PNG)</span>";
                                 }
                             ?>       
 
@@ -120,7 +120,7 @@
                                         }
                                     echo "</div>";
                                 } else {
-                                    echo "Select images (only PNG, JPG or JPEG)";
+                                    echo "<span>Select images (only PNG, JPG or JPEG)<br> recommended: 10 images max.</span>";
                                 }
                             ?>
                         </label>
@@ -167,5 +167,16 @@
         echo "</form></div>";
     }
 
+?>
+
+    <script>
+        $(function() {                       
+            $("#close-card").click(function() {  
+                $(".info-card").addClass("hide");  
+            });
+        });
+    </script>
+
+<?php
     include 'footer.php';
 ?>

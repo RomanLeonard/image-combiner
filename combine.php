@@ -80,6 +80,8 @@
         }
         if($error === 0){
             header("Location: index.php?combinedSuccessfully");
+
+            compressImages();
         }
         else { 
             header("Location: error.php?error=combined");

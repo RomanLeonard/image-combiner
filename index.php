@@ -4,34 +4,45 @@
     $upload_dir = './uploads';
     $uploaded_images = null;
     $image_name = [];
-    foreach (scandir($upload_dir) as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $uploaded_images += 1;
-            $image_name[] = './uploads/'.$file;
+    if (!file_exists($upload_dir)) {
+        mkdir($upload_dir, 0777, true);
+    } else{
+        foreach (scandir($upload_dir) as $file) {
+            if ($file !== '.' && $file !== '..') {
+                $uploaded_images += 1;
+                $image_name[] = './uploads/'.$file;
+            } 
         } 
-    } 
-
+    }
 
     // READ FILE IN watermark DIRECTORY
     $watermark_dir = './watermark';
     $current_watermark = '';
     $uploaded_watermark = null;
-    foreach (scandir($watermark_dir) as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $uploaded_watermark += 1;
-            if ($uploaded_watermark === 1){
-            $current_watermark = './watermark/'.$file;
+    if (!file_exists($watermark_dir)) {
+        mkdir($watermark_dir, 0777, true);
+    } else{
+        foreach (scandir($watermark_dir) as $file) {
+            if ($file !== '.' && $file !== '..') {
+                $uploaded_watermark += 1;
+                if ($uploaded_watermark === 1){
+                $current_watermark = './watermark/'.$file;
+                } 
             } 
-        } 
+        }
     }
 
     // READ FILE IN combined DIRECTORY
     $combined_dir = './combined';
     $combined_index = 0;
-    foreach (scandir($combined_dir) as $file) {
-        if ($file !== '.' && $file !== '..') {
-            $combined_index++;
-        } 
+    if (!file_exists($combined_dir)) {
+        mkdir($combined_dir, 0777, true);
+    } else{
+        foreach (scandir($combined_dir) as $file) {
+            if ($file !== '.' && $file !== '..') {
+                $combined_index++;
+            } 
+        }
     }
 
     include 'header.php';

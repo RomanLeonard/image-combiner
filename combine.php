@@ -48,19 +48,32 @@
             
             $watermark_to_insert = imagecreatefrompng($watermark_img);
 
-            // make the watermark 50% of the bg size
-            $half_width = $bg_file_size[0]/2;
-            $half_height = $bg_file_size[1]/2;
+            /* -- make the watermark 50% of the bg size
+            $half_width      = round($bg_file_size[0]/2);
+            $half_height     = round($bg_file_size[1]/2);
             $final_watermark = imagecreatetruecolor($half_width, $half_height);
+            imagealphablending($final_watermark, true);
+            imagesavealpha($final_watermark, true);
+            */
+            // make the watermark 25% of the bg size
+            $watermark_mod_width  = round($bg_file_size[0]/3);
+            $watermark_mod_height = round($bg_file_size[1]/3);
+            $final_watermark      = imagecreatetruecolor($watermark_mod_width, $watermark_mod_height);
             imagealphablending($final_watermark, true);
             imagesavealpha($final_watermark, true);
 
             // find the center of the logo/watermark;
+            
+            /* -- use this if you want centered watermark
             $center_logo_x = ($bg_file_size[0]/2)-$half_width/2;
             $center_logo_y = ($bg_file_size[1]/2)-$half_height/2;
+            */
+            // position watermark
+            $center_logo_x = 20;
+            $center_logo_y = 20;
 
             // RESIZE WATERMARK
-            $watermark_resized = imagescale($watermark_to_insert, $half_width, -1);
+            $watermark_resized = imagescale($watermark_to_insert, $watermark_mod_height, -1);
             imagepng($watermark_resized, './watermark/watermark-resized.png');
             $watermark_new_size = getimagesize('./watermark/watermark-resized.png');
             $watermark_width = $watermark_new_size[0];

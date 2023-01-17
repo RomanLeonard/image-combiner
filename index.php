@@ -48,7 +48,9 @@
     include 'header.php';
 ?>
 
-    <h1 class="title">IMAGE COMBINER</h1>
+    <div class="title">
+        <img src="assets/image-combiner.png" alt="IMAGE-COMBINER LOGO - Add watermark on photos in bulk for free.">
+    </div>
 
 <?php 
 
@@ -103,7 +105,7 @@
 
                         </label>
                         <input type="file" name="watermark" multiple id="watermark-input" onchange="readURL(this);"/>
-                        <button type="submit" name="submitWatermark">UPLOAD</button>
+                        <button type="submit" name="submitWatermark">VERIFY UPLOAD</button>
                     </form>
                 </div>
             </div>
@@ -125,7 +127,7 @@
                             ?>
                         </label>
                         <input type="file" name="file[]" multiple id="background-input"/>
-                        <button type="submit" name="submitBg">UPLOAD</button>
+                        <button type="submit" name="submitBg">VERIFY UPLOAD</button>
                     </form>
                 </div>
             </div>
